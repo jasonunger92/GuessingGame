@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GUESS AGAIN!</title>
-    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
-    <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="main.css" type="text/css" rel="stylesheet">
-  </head>
-  <body onload="generateWinningNumber()">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GUESS AGAIN!</title>
+  <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
+  <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="main.css" type="text/css" rel="stylesheet">
+</head>
+<body onload="generateWinningNumber()">
   <div class="main">
     <img class="pic" src="images/Header.png">
-    <h3 class="header">I'm thinking of a number between 1 and 100...</h3>
-    <br>
+    <h2 class="header">I'm thinking of a number between 1 and 100...</h3>
+      <br>
       <input class="btn btn-default btn-lg input" type="text" name="guess" id="guess" placeholder="Pick a number between 1-100">
-        <h3 class="guesstext" id="info"></h3>
+      <h3 class="guesstext" id="info"></h3>
       <button class="btn btn-default btn-lg submit" type="button" id="submit">Submit your guess!</button>
-    <br>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-4">
-        <button class="btn btn-danger btn-lg option" type="button" id="play-again" onclick="playAgain()">Play again?</button>
+      <h4 class="guesstext" id="lastGuess"></h4>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-4">
+          <button class="btn btn-danger btn-lg option" type="button" id="play-again" onclick="playAgain()">Play again?</button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-lg option" type="button" id="hint-button" onclick="provideHint()">Want a Hint?</button>
+        </div>
       </div>
-      <div class="col-md-2">
-        <button class="btn btn-primary btn-lg option" type="button" id="hint-button" onclick="provideHint()">Want a Hint?</button>
+      <br>
+      <h3 id="helper">You have 5 more guesses!</h3>
+      <br>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-2 range">
+          <h4 class="freezing range">Freezing</h4>> 20 away
+        </div>
+        <div class="col-md-2 range">
+          <h4 class="cold range">Cold</h4>> 10 away
+        </div>
+        <div class="col-md-2 range">
+          <h4 class="warm range">Warm</h4>> 5 away
+        </div>
+        <div class="col-md-2 range">
+          <h4 class="hot range">Hot</h4>< 5 away
+        </div>
       </div>
-    </div>
-    <br>
-      <h3 id="helper">You have 10 more guesses!</h3>
-    </div>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="guessGame.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="guessGame.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+    </body>
+    </html>
