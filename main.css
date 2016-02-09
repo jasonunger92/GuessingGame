@@ -46,8 +46,32 @@
   text-align: center;
   margin: 20px auto;
   display:none;
-  width: 500px;
 }
-canvas {
-    display: none;
+div.range {
+  text-align: center;
+}
+.range {
+  text-transform:uppercase;
+  font-weight: bold;
+}
+.freezing {
+  color: #86C7FF;
+}
+.cold {
+  color: #1D7EFF;
+}
+.warm {
+  color: #FF7A15;
+}
+.hot {
+  color: #DC0000;
+}
+.winner {
+  background:  url(images/confetti.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.winning {
+  background: white;
+  color: red;
 }
