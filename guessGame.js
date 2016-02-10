@@ -4,7 +4,8 @@
 var playersGuess,
 winningNumber,
 numGuessesLeft = 5,
-prevGuesses = [];
+prevGuesses = [],
+hintGiven = false;
 
 
 
@@ -63,6 +64,7 @@ function checkGuess(){
 // Create a provide hint button that provides additional clues to the "Player"
 
 function provideHint(){
+  if (hintGiven === false) {
   var numHints = numGuessesLeft*2;
   var hintArray = [];
   var hintString = "";
@@ -72,6 +74,8 @@ function provideHint(){
   hintArray.splice(Math.floor(Math.random()*(hintArray.length-1)+1),0,winningNumber);
   hintString = hintArray.join(", ");
   $("#helper").html("Possible Answers:<br>" + hintString);
+  hintGive = true;
+}
 }
 
 // Allow the "Player" to Play Again
