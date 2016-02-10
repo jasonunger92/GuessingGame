@@ -65,17 +65,21 @@ function checkGuess(){
 
 function provideHint(){
   if (hintGiven === false) {
-  var numHints = numGuessesLeft*2;
-  var hintArray = [];
-  var hintString = "";
-  for(var i = 0; i < numHints - 2; i++) {
-    hintArray[i] = Math.floor(Math.random()*100+1);
+    var numHints = numGuessesLeft*2;
+    var hintArray = [];
+    hintString = "";
+    for(var i = 0; i < numHints - 2; i++) {
+      hintArray[i] = Math.floor(Math.random()*100+1);
+    };
+    hintArray.splice(Math.floor(Math.random()*(hintArray.length-1)+1),0,winningNumber);
+    hintDuplicate(hintArray);
+    hintString = hintArray.join(", ");
+    $("#helper").html("Possible Answers:<br>" + hintString);
+    hintGiven = true;
+    $("#hint-button").html('Reveal Hint');
+  } else {
+    $("#helper").html("Possible Answers:<br>" + hintString);
   };
-  hintArray.splice(Math.floor(Math.random()*(hintArray.length-1)+1),0,winningNumber);
-  hintString = hintArray.join(", ");
-  $("#helper").html("Possible Answers:<br>" + hintString);
-  hintGive = true;
-}
 }
 
 // Allow the "Player" to Play Again
@@ -84,6 +88,7 @@ function playAgain(){
   generateWinningNumber();
   prevGuesses = [];
   numGuessesLeft = 5;
+  hintGiven = false;
   $("#helper").html("You have " + numGuessesLeft + " more guesses!").show()
   $("#info").hide();
   $("#lastGuess").hide();
@@ -134,6 +139,17 @@ function showLastGuess() {
     $('#lastGuess').html("Your last guess was: " + prevGuesses[prevGuesses.length - 1]).show();
   };
 }
+
+function hintDuplicate (array) {
+  for (var i = 0; i < array.length; i++) {
+    for (var j = 0; j < array.length; j++) {
+      if (array[i] === array[j] && i != j) {
+        array[j] = Math.floor(Math.random()*100+1);
+      };
+    };
+  };
+}
+
 
 
 /* **** Event Listeners/Handlers ****  */
