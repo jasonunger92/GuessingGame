@@ -67,11 +67,22 @@ div.range {
   color: #DC0000;
 }
 .winner {
-  background:  url(images/confetti.jpg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.winning {
-  background-color: white;
+  font-weight: bolder;;
   color: red;
+}
+.loser {
+  font-weight: bolder;
+  color: gray;
+}
+.over {
+  display: none;
+}
+#play-again {
+  text-align: center;
+  display: block;
+  margin: 10px auto;
+  width: 400px;
+}
+#picture {
+  opacity: 0;
 }
