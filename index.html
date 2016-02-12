@@ -9,7 +9,7 @@
   <link href="bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
   <link href="main.css" type="text/css" rel="stylesheet">
 </head>
-<body onload="generateWinningNumber()">
+<body onload="gameStart()">
   <div class="main">
     <img class="pic" src="images/Header.png">
     <h2 class="header">I'm thinking of a number between 1 and 100...</h2>
@@ -17,19 +17,24 @@
     <input class="btn btn-default btn-lg input" type="text" id="guess" placeholder="Pick a number between 1-100">
     <h3 class="guesstext" id="info"></h3>
     <button class="btn btn-default btn-lg submit" type="button" id="submit">Submit your guess!</button>
-    <h4 class="guesstext" id="lastGuess"></h4>
-    <div class="row">
+    <h4 class="guesstext" id="last-guess"></h4>
+    <div class="row during">
       <div class="col-md-2 col-md-offset-4">
-        <button class="btn btn-danger btn-lg option" type="button" id="play-again" onclick="playAgain()">Play again?</button>
+        <button class="btn btn-danger btn-lg option" type="button" id="start-over" onclick="playAgain()">Start Over?</button>
       </div>
       <div class="col-md-2">
         <button class="btn btn-primary btn-lg option" type="button" id="hint-button" onclick="provideHint()">Want a Hint?</button>
       </div>
     </div>
+    <div class="row over">
+      <div class="col-md-4 col-md-offset-4">
+        <button class="btn btn-danger btn-lg option" type="button" id="play-again" onclick="playAgain()">Play Again?</button>
+      </div>
+    </div>
     <br>
     <h3 id="helper">You have 5 more guesses!</h3>
     <br>
-    <div class="row">
+    <div class="row ranging">
       <div class="col-md-2 col-md-offset-2 range">
         <h4 class="freezing range">Freezing</h4>> 20 away
       </div>
@@ -43,6 +48,7 @@
         <h4 class="hot range">Hot</h4>< 5 away
       </div>
     </div>
+    <span id="picture"></span>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
